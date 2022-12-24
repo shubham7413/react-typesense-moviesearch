@@ -1,7 +1,7 @@
 import React from "react";
 import { connectHits } from "react-instantsearch-core";
 import styled from "styled-components";
-import { MovieHit } from "../movieHit";
+import { LinkHit } from "../linkHit";
 
 const HitsContainer = styled.div`
   width: 100%;
@@ -16,7 +16,7 @@ function MoviesHits({ hits }) {
   return (
     <HitsContainer>
       {hits.map((hit) => (
-        <MovieHit key={hit.ObjectID} hit={hit} />
+        <LinkHit key={hit.ObjectID} hit={hit} />
       ))}
     </HitsContainer>
   );

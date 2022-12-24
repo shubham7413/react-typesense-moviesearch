@@ -21,7 +21,7 @@ module.exports = (async () => {
   const typesense = new Typesense.Client(TYPESENSE_CONFIG);
 
   const schema = {
-    name: "movies",
+    name: "links",
     num_documents: 0,
     fields: [
       {
@@ -34,63 +34,20 @@ module.exports = (async () => {
         type: "string",
         facet: false,
       },
-      // {
-      //   name: "genres",
-      //   type: "string[]",
-      //   facet: true,
-      // },
-      // {
-      //   name: "genres.lvl0",
-      //   type: "string[]",
-      //   facet: true,
-      // },
-      // {
-      //   name: "genres.lvl1",
-      //   type: "string[]",
-      //   facet: true,
-      //   optional: true,
-      // },
-      // {
-      //   name: "genres.lvl2",
-      //   type: "string[]",
-      //   facet: true,
-      //   optional: true,
-      // },
-      // {
-      //   name: "release_date",
-      //   type: "string",
-      //   facet: true,
-      // },
-      // {
-      //   name: "popularity",
-      //   type: "float",
-      //   facet: true,
-      // },
-      // {
-      //   name: "vote_average",
-      //   type: "float",
-      //   facet: true,
-      // },
-      // {
-      //   name: "image",
-      //   type: "string",
-      //   facet: true,
-      // },
     ],
-    // default_sorting_field: "popularity",
   };
 
-  const movies = require("./data/saved_links.json");
+  const links = require("./data/saved_links.json");
 
   try {
-    const collection = await typesense.collections("movies").retrieve();
-    console.log("Found existing collection of movies");
+    const collection = await typesense.collections("links").retrieve();
+    console.log("Found existing collection of links");
     console.log(JSON.stringify(collection, null, 2));
 
-    if (collection.num_documents !== movies.length) {
+    if (collection.num_documents !== links.length) {
       console.log("Collection has different number of documents than data");
       console.log("Deleting collection");
-      await typesense.collections("movies").delete();
+      await typesense.collections("links").delete();
     }
   } catch (err) {
     console.error(err);
@@ -103,33 +60,11 @@ module.exports = (async () => {
 
   console.log("Populating collection...");
 
-  // movies.forEach(async (movie) => {
-  //   movie.image = BASE_IMAGE_PATH + movie.poster_path;
-
-  //   delete movie.poster_path;
-  //   delete movie.original_language;
-  //   delete movie.original_title;
-  //   delete movie.video;
-  //   delete movie.backdrop_path;
-  //   delete movie.vote_count;
-  //   delete movie.id;
-  //   delete movie.adult;
-  //   delete movie.genre_ids;
-
-  //   movie.genres.forEach((genre, idx) => {
-  //     movie[`genres.lvl${idx}`] = [movie.genres.slice(0, idx + 1).join(">")];
-  //   });
-
-  //   //[Science Fiction], [Science Fiction > Action], [Science Fiction > Action > Adventure], [Science Fiction > Action > Adventure > Western]
-  // });
-
   try {
     const returnData = await typesense
-      .collections("movies")
+      .collections("links")
       .documents()
-      .import(movies);
-
-    // console.log("Return data: ", returnData);
+      .import(links);
   } catch (err) {
     console.error(err);
   }

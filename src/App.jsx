@@ -9,7 +9,7 @@ import {
   SearchBox,
 } from "react-instantsearch-dom";
 import { searchClient } from "./typesenseAdapter";
-import MoviesHits from "./components/moviesHits";
+import LinksHits from "./components/linksHits";
 import "instantsearch.css/themes/satellite.css";
 
 const AppContainer = styled.div`
@@ -29,7 +29,7 @@ function App() {
         <h4>Search Movies</h4>
         <SearchBox />
         <RefinementList attribute="title" />
-        <MoviesHits />
+        <LinksHits />
         <Pagination />
       </InstantSearch>
     </AppContainer>
