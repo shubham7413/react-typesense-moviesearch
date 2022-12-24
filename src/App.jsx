@@ -28,7 +28,7 @@ function App() {
       <InstantSearch indexName="movies" searchClient={searchClient}>
         <h4>Search Movies</h4>
         <SearchBox />
-        {/* <RefinementList attribute="url" /> */}
+        <RefinementList attribute="title" />
         <MoviesHits />
         <Pagination />
       </InstantSearch>

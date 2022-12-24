@@ -21,7 +21,7 @@ module.exports = (async () => {
   const typesense = new Typesense.Client(TYPESENSE_CONFIG);
 
   const schema = {
-    name: "movies",
+    name: "moviesss",
     num_documents: 0,
     fields: [
       {
@@ -106,21 +106,21 @@ module.exports = (async () => {
   // movies.forEach(async (movie) => {
   //   movie.image = BASE_IMAGE_PATH + movie.poster_path;
 
-  //   delete movie.poster_path;
-  //   delete movie.original_language;
-  //   delete movie.original_title;
-  //   delete movie.video;
-  //   delete movie.backdrop_path;
-  //   delete movie.vote_count;
-  //   delete movie.id;
-  //   delete movie.adult;
-  //   delete movie.genre_ids;
+  // delete movie.poster_path;
+  // delete movie.original_language;
+  // delete movie.original_title;
+  // delete movie.video;
+  // delete movie.backdrop_path;
+  // delete movie.vote_count;
+  // delete movie.id;
+  // delete movie.adult;
+  // delete movie.genre_ids;
 
-  //   movie.genres.forEach((genre, idx) => {
-  //     movie[`genres.lvl${idx}`] = [movie.genres.slice(0, idx + 1).join(">")];
-  //   });
+  // movie.genres.forEach((genre, idx) => {
+  //   movie[`genres.lvl${idx}`] = [movie.genres.slice(0, idx + 1).join(">")];
+  // });
 
-  //   //[Science Fiction], [Science Fiction > Action], [Science Fiction > Action > Adventure], [Science Fiction > Action > Adventure > Western]
+  //[Science Fiction], [Science Fiction > Action], [Science Fiction > Action > Adventure], [Science Fiction > Action > Adventure > Western]
   // });
 
   try {
