@@ -12,20 +12,13 @@ import { searchClient } from "./typesenseAdapter";
 import LinksHits from "./components/linksHits";
 import "instantsearch.css/themes/satellite.css";
 
-const AppContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1em 0;
-`;
+const AppContainer = styled.div``;
 
 function App() {
   return (
     <AppContainer>
       <h2>React/Typesense Movies InstantSearch</h2>
-      <InstantSearch indexName="movies" searchClient={searchClient}>
+      <InstantSearch indexName="links" searchClient={searchClient}>
         <h4>Search Movies</h4>
         <SearchBox />
         <RefinementList attribute="title" />

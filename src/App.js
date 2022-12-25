@@ -12,26 +12,27 @@ import { searchClient } from "./typesenseAdapter";
 import LinksHits from "./components/linksHits";
 import "instantsearch.css/themes/satellite.css";
 
-const AppContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1em 0;
-`;
+import * as React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+
+const AppContainer = styled.div``;
 
 function App() {
   return (
     <AppContainer>
-      <h2>Links Search Fast</h2>
-      <InstantSearch indexName="movies" searchClient={searchClient}>
-        <h4>Search Links</h4>
-        <SearchBox />
-        {/* <RefinementList attribute="url" /> */}
-        <LinksHits />
-        <Pagination />
-      </InstantSearch>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <h2>Links Search Fast</h2>
+        <InstantSearch indexName="links" searchClient={searchClient}>
+          <h4>Search Links</h4>
+          <SearchBox />
+          {/* <RefinementList attribute="url" /> */}
+          <LinksHits />
+          <Pagination />
+        </InstantSearch>
+      </Container>
     </AppContainer>
   );
 }

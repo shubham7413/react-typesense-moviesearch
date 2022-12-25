@@ -16,7 +16,7 @@ let TYPESENSE_SERVER_CONFIG = {
 export const typesenseAdapter = new TypesenseInstantsearchAdapter({
   server: TYPESENSE_SERVER_CONFIG,
   additionalSearchParameters: {
-    queryBy: "url, title",
+    queryBy: "title, url",
     queryByWeights: "4,2",
     numTypos: 3,
     typoTokensThreshold: 1,
